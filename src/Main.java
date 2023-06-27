@@ -1,17 +1,29 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Opt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner in = new Scanner(System.in);
+        double itemPrice;                                                                                                           //num itemPrice
+        double shippingPrice;                                                                                                       //num shippingPrice
+        double totalCost;
 
-        // Press Ctrl+R or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        System.out.print("What is the price of the item?");                                                                         //output "What is the price of the item?"
+        in.hasNextDouble();                                                                                                         //input itemPrice
 
-            // Press Ctrl+D to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Cmd+F8.
-            System.out.println("i = " + i);
-        }
-    }
-}
+        if (in.hasNextDouble()) {
+            itemPrice = in.nextDouble();
+            in.nextLine();
+            if (itemPrice >= 100) {                                                                                                 //if itemPrice >= 100 then
+                shippingPrice = 0;                                                                                                  //shippingPrice = 0
+                totalCost = shippingPrice+itemPrice;                                                                                //calculate total cost
+                System.out.println("Your cost of shipping is: " +shippingPrice + " " + "Your total cost is: " +totalCost);          //output "Your cost of shipping is:" +shippingPrice + " " + "Your total cost is: " +totalCost
+
+            }
+                else {                                                                                                              //else
+                shippingPrice = 0.02 * itemPrice;                                                                                   //shippingPrice = 0.02*itemPrice
+                totalCost = shippingPrice + itemPrice;                                                                              //calculate total cost
+                System.out.println("Your cost of shipping is: " + shippingPrice + " " + "Your total cost is: " +totalCost);         //output "Your cost of shipping is:" +shippingPrice                                                                           //end else
+            }                                                                                                                       //end else
+        }                                                                                                                           //end if
+    }                                                                                                                               //end main
+}                                                                                                                                   //end class
